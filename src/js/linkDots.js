@@ -30,10 +30,20 @@ var linkDots = (function(){
 			context.beginPath();
 			context.moveTo(obj.start.x, obj.start.y);
 			context.lineTo(obj.finish.x, obj.finish.y);
-			context.strokeStyle = '#FFFFFF';
+			context.strokeStyle = 'rgba(255,255,255,0.1)';
 			context.lineCap = 'round';
 			context.lineWidth = 2;
 			context.stroke();
+		},
+		drawCircle: function(point, radius, background){
+
+			var context = exports.options.canvas.getContext('2d');
+
+			context.beginPath();
+			context.arc(point.x, point.y, radius, 0, 2 * Math.PI, false);
+			context.fillStyle = background;
+      		context.fill();
+
 		},
 		newDot: function(){
 
@@ -46,9 +56,14 @@ var linkDots = (function(){
 
 			newDot.finish = exports.randomDot();
 
+			exports.drawCircle(newDot.start, exports.randomBetween(10,100), 'rgba(255,255,255,0.3)');
+
 			exports.drawLine(newDot);
 
 			LAST_POINT = newDot.finish;
+		},
+		randomBetween: function(min, max){
+			return Math.floor(Math.random() * (max - min + 1) + min);
 		}
 
 	};
