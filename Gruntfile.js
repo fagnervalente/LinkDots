@@ -40,7 +40,7 @@ module.exports = function( grunt ) {
       all: {
         src: 'src/img/icons/*.png',
         dest: 'dist/images/sprites.png',
-        destCss: prod_css + 'main.css'
+        destCss: prod_css + 'main.min.css'
       }
     },
 
