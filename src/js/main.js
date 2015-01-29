@@ -8,11 +8,11 @@ $(function(){
 	linkDots.init({
 		maxWidth: $canvas.width(),
 		maxHeight: $canvas.height(),
-		canvas: document.getElementById('canvas-wrapper')
+		element: document.getElementById('canvas-wrapper')
 	});
 
 	var intervalDots = setInterval(function(){
 		linkDots.newDot();
-	},300);
+	},2500);
 
 });
